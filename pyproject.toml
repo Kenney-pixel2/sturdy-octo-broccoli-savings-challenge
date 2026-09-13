@@ -5,10 +5,12 @@ description = ""
 authors = [
     {name = "Kenneth Chua",email = "kennethchua474@gmail.com"}
 ]
-packages = [{include = "savings_challenge", from = "src"}]
 requires-python = ">=3.12"
 dependencies = [
 ]
+
+[tool.poetry]
+packages = [{include = "savings_challenge", from = "src"}]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
