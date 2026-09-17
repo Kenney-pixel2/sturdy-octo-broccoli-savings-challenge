@@ -11,3 +11,6 @@ class Challenge:
     def __post_init__(self) -> None:
         if not self.name.strip():
             raise ValueError("Challenge name cannot be empty.")
+
+        if self.target_amount <= 0:
+            raise ValueError("Target amount must be greater than zero.")
