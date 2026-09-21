@@ -20,3 +20,8 @@ def test_challenge_rejects_empty_name() -> None:
 def test_challenge_rejects_non_positive_target_amount() -> None:
     with pytest.raises(ValueError, match="amount"):
         Challenge(name="Vacation", target_amount=0, target_days=30)
+
+
+def test_challenge_rejects_non_positive_target_days() -> None:
+    with pytest.raises(ValueError, match="days"):
+        Challenge(name="Vacation", target_amount=1000, target_days=0)

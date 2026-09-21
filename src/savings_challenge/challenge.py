@@ -14,3 +14,6 @@ class Challenge:
 
         if self.target_amount <= 0:
             raise ValueError("Target amount must be greater than zero.")
+
+        if self.target_days <= 0:
+            raise ValueError("Target days must be greater than zero.")
