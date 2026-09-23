@@ -33,3 +33,11 @@ def test_amount_for_day_splits_evenly_when_divisible() -> None:
     assert challenge.amount_for_day(1) == 100
     assert challenge.amount_for_day(2) == 100
     assert challenge.amount_for_day(3) == 100
+
+
+def test_amount_for_day_distributes_remainder_to_earliest_days() -> None:
+    challenge = Challenge(name="Vacation", target_amount=100, target_days=3)
+
+    assert challenge.amount_for_day(1) == 34
+    assert challenge.amount_for_day(2) == 33
+    assert challenge.amount_for_day(3) == 33

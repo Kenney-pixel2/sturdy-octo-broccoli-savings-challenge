@@ -19,4 +19,10 @@ class Challenge:
             raise ValueError("Target days must be greater than zero.")
 
     def amount_for_day(self, day: int) -> int:
-        return self.target_amount // self.target_days
+        base = self.target_amount // self.target_days
+        remainder = self.target_amount % self.target_days
+
+        if day <= remainder:
+            return base + 1
+
+        return base
