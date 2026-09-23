@@ -25,3 +25,11 @@ def test_challenge_rejects_non_positive_target_amount() -> None:
 def test_challenge_rejects_non_positive_target_days() -> None:
     with pytest.raises(ValueError, match="days"):
         Challenge(name="Vacation", target_amount=1000, target_days=0)
+
+
+def test_amount_for_day_splits_evenly_when_divisible() -> None:
+    challenge = Challenge(name="Vacation", target_amount=300, target_days=3)
+
+    assert challenge.amount_for_day(1) == 100
+    assert challenge.amount_for_day(2) == 100
+    assert challenge.amount_for_day(3) == 100
