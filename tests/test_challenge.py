@@ -41,3 +41,11 @@ def test_amount_for_day_distributes_remainder_to_earliest_days() -> None:
     assert challenge.amount_for_day(1) == 34
     assert challenge.amount_for_day(2) == 33
     assert challenge.amount_for_day(3) == 33
+
+
+def test_complete_day_increments_completed_days() -> None:
+    challenge = Challenge(name="Vacation", target_amount=300, target_days=3)
+
+    challenge.complete_day()
+
+    assert challenge.completed_days == 1

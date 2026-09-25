@@ -26,3 +26,6 @@ class Challenge:
             return base + 1
 
         return base
+
+    def complete_day(self) -> None:
+        self.completed_days += 1
