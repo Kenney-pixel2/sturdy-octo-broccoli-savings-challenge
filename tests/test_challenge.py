@@ -49,3 +49,11 @@ def test_complete_day_increments_completed_days() -> None:
     challenge.complete_day()
 
     assert challenge.completed_days == 1
+
+
+def test_complete_day_raises_when_already_complete() -> None:
+    challenge = Challenge(name="Vacation", target_amount=300, target_days=1)
+    challenge.complete_day()
+
+    with pytest.raises(ValueError, match="already complete"):
+        challenge.complete_day()

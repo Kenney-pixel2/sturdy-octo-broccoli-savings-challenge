@@ -27,5 +27,12 @@ class Challenge:
 
         return base
 
+    @property
+    def is_complete(self) -> bool:
+        return self.completed_days >= self.target_days
+
     def complete_day(self) -> None:
+        if self.is_complete:
+            raise ValueError("Challenge is already complete.")
+
         self.completed_days += 1
