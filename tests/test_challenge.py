@@ -74,3 +74,11 @@ def test_amount_saved_sums_completed_days() -> None:
     challenge.complete_day()
 
     assert challenge.amount_saved == 67
+
+
+def test_rename_changes_the_name() -> None:
+    challenge = Challenge(name="Vacation", target_amount=300, target_days=3)
+
+    challenge.rename("Holiday")
+
+    assert challenge.name == "Holiday"
