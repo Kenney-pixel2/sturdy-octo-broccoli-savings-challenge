@@ -65,3 +65,12 @@ def test_progress_percentage_reflects_completed_days() -> None:
     challenge.complete_day()
 
     assert challenge.progress_percentage == 25
+
+
+def test_amount_saved_sums_completed_days() -> None:
+    challenge = Challenge(name="Vacation", target_amount=100, target_days=3)
+
+    challenge.complete_day()
+    challenge.complete_day()
+
+    assert challenge.amount_saved == 67
