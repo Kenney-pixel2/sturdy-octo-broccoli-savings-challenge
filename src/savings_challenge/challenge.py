@@ -36,3 +36,7 @@ class Challenge:
             raise ValueError("Challenge is already complete.")
 
         self.completed_days += 1
+
+    @property
+    def progress_percentage(self) -> int:
+        return (self.completed_days * 100) // self.target_days

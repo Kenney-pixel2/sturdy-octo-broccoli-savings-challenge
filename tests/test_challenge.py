@@ -57,3 +57,11 @@ def test_complete_day_raises_when_already_complete() -> None:
 
     with pytest.raises(ValueError, match="already complete"):
         challenge.complete_day()
+
+
+def test_progress_percentage_reflects_completed_days() -> None:
+    challenge = Challenge(name="Vacation", target_amount=400, target_days=4)
+
+    challenge.complete_day()
+
+    assert challenge.progress_percentage == 25
