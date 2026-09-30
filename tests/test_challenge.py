@@ -82,3 +82,10 @@ def test_rename_changes_the_name() -> None:
     challenge.rename("Holiday")
 
     assert challenge.name == "Holiday"
+
+
+def test_rename_rejects_empty_name() -> None:
+    challenge = Challenge(name="Vacation", target_amount=300, target_days=3)
+
+    with pytest.raises(ValueError, match="name"):
+        challenge.rename("   ")

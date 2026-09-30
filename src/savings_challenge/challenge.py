@@ -46,4 +46,7 @@ class Challenge:
         return sum(self.amount_for_day(day) for day in range(1, self.completed_days + 1))
 
     def rename(self, new_name: str) -> None:
+        if not new_name.strip():
+            raise ValueError("Challenge name cannot be empty.")
+
         self.name = new_name
