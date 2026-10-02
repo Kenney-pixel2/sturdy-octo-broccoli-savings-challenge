@@ -50,3 +50,11 @@ class Challenge:
             raise ValueError("Challenge name cannot be empty.")
 
         self.name = new_name
+
+    def to_dict(self) -> dict[str, str | int]:
+        return {
+            "name": self.name,
+            "target_amount": self.target_amount,
+            "target_days": self.target_days,
+            "completed_days": self.completed_days,
+        }

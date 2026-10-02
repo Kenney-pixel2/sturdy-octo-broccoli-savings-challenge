@@ -89,3 +89,15 @@ def test_rename_rejects_empty_name() -> None:
 
     with pytest.raises(ValueError, match="name"):
         challenge.rename("   ")
+
+
+def test_to_dict_returns_all_fields() -> None:
+    challenge = Challenge(name="Vacation", target_amount=300, target_days=3)
+    challenge.complete_day()
+
+    assert challenge.to_dict() == {
+        "name": "Vacation",
+        "target_amount": 300,
+        "target_days": 3,
+        "completed_days": 1,
+    }
