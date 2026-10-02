@@ -101,3 +101,19 @@ def test_to_dict_returns_all_fields() -> None:
         "target_days": 3,
         "completed_days": 1,
     }
+
+
+def test_from_dict_reconstructs_a_challenge() -> None:
+    data: dict[str, str | int] = {
+        "name": "Vacation",
+        "target_amount": 300,
+        "target_days": 3,
+        "completed_days": 1,
+    }
+
+    challenge = Challenge.from_dict(data)
+
+    assert challenge.name == "Vacation"
+    assert challenge.target_amount == 300
+    assert challenge.target_days == 3
+    assert challenge.completed_days == 1

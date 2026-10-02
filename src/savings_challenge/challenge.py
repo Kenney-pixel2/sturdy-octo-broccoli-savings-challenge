@@ -8,6 +8,15 @@ class Challenge:
     target_days: int
     completed_days: int = field(default=0)
 
+    @classmethod
+    def from_dict(cls, data: dict[str, str | int]) -> "Challenge":
+        return cls(
+            name=str(data["name"]),
+            target_amount=int(data["target_amount"]),
+            target_days=int(data["target_days"]),
+            completed_days=int(data["completed_days"]),
+        )
+
     def __post_init__(self) -> None:
         if not self.name.strip():
             raise ValueError("Challenge name cannot be empty.")
