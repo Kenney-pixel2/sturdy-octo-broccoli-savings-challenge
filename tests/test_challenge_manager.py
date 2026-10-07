@@ -9,3 +9,21 @@ def test_add_challenge_appears_in_challenges() -> None:
     manager.add_challenge(challenge)
 
     assert manager.challenges == (challenge,)
+
+
+def test_find_challenge_returns_matching_challenge() -> None:
+    manager = ChallengeManager()
+    challenge = Challenge(name="Vacation", target_amount=300, target_days=3)
+    manager.add_challenge(challenge)
+
+    found = manager.find_challenge("Vacation")
+
+    assert found is challenge
+
+
+def test_find_challenge_returns_none_when_not_found() -> None:
+    manager = ChallengeManager()
+
+    found = manager.find_challenge("Vacation")
+
+    assert found is None

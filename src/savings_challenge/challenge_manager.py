@@ -11,3 +11,10 @@ class ChallengeManager:
     @property
     def challenges(self) -> tuple[Challenge, ...]:
         return tuple(self._challenges)
+
+    def find_challenge(self, name: str) -> Challenge | None:
+        for challenge in self._challenges:
+            if challenge.name == name:
+                return challenge
+
+        return None
