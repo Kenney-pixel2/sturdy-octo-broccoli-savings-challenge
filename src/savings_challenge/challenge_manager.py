@@ -18,3 +18,6 @@ class ChallengeManager:
                 return challenge
 
         return None
+
+    def remove_challenge(self, challenge: Challenge) -> None:
+        self._challenges.remove(challenge)
