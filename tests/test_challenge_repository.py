@@ -15,3 +15,9 @@ def test_save_then_load_round_trips_challenges(tmp_path: Path) -> None:
     repository.save(challenges, file_path)
 
     assert repository.load(file_path) == challenges
+
+
+def test_load_returns_empty_list_when_file_is_missing(tmp_path: Path) -> None:
+    repository = ChallengeRepository()
+
+    assert repository.load(tmp_path / "missing.json") == []
