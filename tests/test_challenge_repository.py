@@ -21,3 +21,12 @@ def test_load_returns_empty_list_when_file_is_missing(tmp_path: Path) -> None:
     repository = ChallengeRepository()
 
     assert repository.load(tmp_path / "missing.json") == []
+
+
+def test_save_creates_missing_parent_folders(tmp_path: Path) -> None:
+    repository = ChallengeRepository()
+    file_path = tmp_path / "nested" / "folder" / "challenges.json"
+
+    repository.save([], file_path)
+
+    assert file_path.exists()
